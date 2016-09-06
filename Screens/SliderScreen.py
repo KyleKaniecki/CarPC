@@ -65,11 +65,10 @@ class SliderScreen(Screen):
 
     def update(self, value):
         self.led_manager.setColor(
-            (int(self.sliders[0]), int(self.sliders[1]), int(self.sliders[2])))
+            (int(self.sliders[0].value), int(self.sliders[1].value), int(self.sliders[2].value)))
 
         for i in range(3):
-            self.labels[i].text = (self.labels[i].text[:len(
-                self.labels[i]) - 4] + self.sliders.value)
+            self.labels[i].text = (self.labels[i].text[:len(self.labels[i]) - 4] + self.sliders.value)
 
     def save(self, value):
 

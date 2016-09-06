@@ -32,26 +32,26 @@ class OBDManager():
         if(table == 1):
             for key in self.first_commands.keys():
                 resp = self.obd_controller.query(self.first_commands[key])
-                if resp.unit == "C":
-                    resp.value = self.celsius_to_fahrenheit(resp.value)
-                    resp.unit = "F"
-                responses[key] = ("%.2f " + str(resp.unit)) % resp.value
+                if resp.units == "C":
+                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
+                    resp.units = "F"
+                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
 
         elif(table == 2):
             for key in self.second_commands.keys():
                 resp = self.obd_controller.query(self.second_commands[key])
-                if resp.unit == "C":
-                    resp.value = self.celsius_to_fahrenheit(resp.value)
-                    resp.unit = "F"
-                responses[key] = ("%.2f " + str(resp.unit)) % resp.value
+                if resp.units == "C":
+                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
+                    resp.units = "F"
+                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
 
         else:
             for key in self.third_commands.keys():
                 resp = self.obd_controller.query(self.third_commands[key])
-                if resp.unit == "C":
-                    resp.value = self.celsius_to_fahrenheit(resp.value)
-                    resp.unit = "F"
-                responses[key] = ("%.2f " + str(resp.unit)) % resp.value
+                if resp.units == "C":
+                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
+                    resp.units = "F"
+                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
 
         return responses
 

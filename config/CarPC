@@ -1,2 +1,3 @@
 [bluetooth]
 address : 00:1D:A5:00:04:A9
+port : /dev/rfcomm0
