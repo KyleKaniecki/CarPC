@@ -1,0 +1,13 @@
+[Unit]
+Description=CarPC
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/CarPC/main.py
+User=pi
+WorkingDirectory=/home/pi/CarPC/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
