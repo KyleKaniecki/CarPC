@@ -4,7 +4,7 @@ kivy.require("1.5.1")
 from kivy.uix.button import Button
 from kivy.clock import Clock
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
 from kivy.uix.label import Label
 
 import datetime

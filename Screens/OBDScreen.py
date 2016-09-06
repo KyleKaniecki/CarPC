@@ -4,7 +4,7 @@ kivy.require("1.5.1")
 from kivy.uix.button import Button
 from kivy.clock import Clock
 from kivy.uix.floatlayout import FloatLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import Screen
 from kivy.uix.label import Label
 
 
@@ -26,7 +26,7 @@ class OBDScreen(Screen):
 
                        Label(text="OBD3", size_hint=(.5, .30),
                              pos_hint={'x': 0, 'y': .20}, font_size=32),
-                       
+
                        Label(text="OBD4", size_hint=(.5, .30),
                              pos_hint={'x': .5, 'y': .20}, font_size=32)
                        ]

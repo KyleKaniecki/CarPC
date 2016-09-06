@@ -38,7 +38,7 @@ class TestApp(App):
         # Add the screens to the ScreenManager so it can manage them
         sm.add_widget(music)
         sm.add_widget(main)
-        # sm.add_widget(obd)
+        sm.add_widget(obd)
         sm.add_widget(sliders)
         sm.add_widget(leds)
         sm.add_widget(anims)
