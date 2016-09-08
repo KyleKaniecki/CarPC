@@ -34,7 +34,7 @@ class OBDManager():
             for key in self.first_commands.keys():
                 resp = self.obd_controller.query(self.first_commands[key])
 
-                if resp.value.units == "C":
+                if resp.value.units == "degC":
                     resp.value = resp.value.to('degF')
                 elif resp.value.units == 'kph':
                     resp.value = resp.value.to('mph')
@@ -45,7 +45,7 @@ class OBDManager():
             for key in self.second_commands.keys():
                 resp = self.obd_controller.query(self.second_commands[key])
 
-                if resp.value.units == "C":
+                if resp.value.units == "degC":
                     resp.value = resp.value.to('degF')
                 elif resp.value.units == 'kph':
                     resp.value = resp.value.to('mph')
@@ -56,7 +56,7 @@ class OBDManager():
             for key in self.third_commands.keys():
                 resp = self.obd_controller.query(self.third_commands[key])
                 
-                if resp.value.units == "C":
+                if resp.value.units == "degC":
                     resp.value = resp.value.to('degF')
                 elif resp.value.units == 'kph':
                     resp.value = resp.value.to('mph')

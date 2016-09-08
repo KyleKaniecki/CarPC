@@ -12,7 +12,6 @@ from kivy.uix.screenmanager import ScreenManager
 from OBD.OBDManager import OBDManager
 from LEDs.LEDManager import LEDManager
 from Screens import MusicScreen, MainScreen, OBDScreen, SliderScreen, LEDScreen, AnimationScreen
-import os
 
 
 class TestApp(App):
