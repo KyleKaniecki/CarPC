@@ -14,9 +14,9 @@ https://github.com/mrichardson23/rpi-kivy-screen
 6. pyserial - MUST BE NEWEST (pip install pyserial --upgrade)
 
 ### Bluetooth setup (Raspberry pi - Headless)
-1. You must run bluetoothctl to pair to the bluetooth device
+You must run bluetoothctl to pair to the bluetooth device
 ``` sudo bluetoothctl ```
-2. Once you're in the CLI, type the following
+Once you're in the CLI, type the following
 ```
 power on
 pairable on
@@ -25,14 +25,30 @@ agent on
 default-agent
 scan on
 ```
-3. Once you see the device you're trying to connect to, type this
+Once you see the device you're trying to connect to, type this
 ```
 pair XX:XX:XX:XX:XX:XX
 trust XX:XX:XX:XX:XX:XX
 ```
-4. Your device should now be paired and connected. 
-5. You can also try to connect, but I've had problems with this. I normally just use rfcomm commands to bind to a /dev device
+Your device should now be paired and trusted. 
+You can also try to connect, but I've had problems with this. I normally just use rfcomm commands to bind to a /dev device
 ```
 sudo rfcomm bind /dev/rfcomm0 XX:XX:XX:XX:XX:XX
 ```
 
+### Copying service file to allow auto start up
+In order for this script to be run as a service, you need to move the .service file to the system
+In order to do that, you need to copy the provided .service file to /etc/systemd/system
+```
+sudo cp ./CarPC.service /etc/systemd/system/
+```
+Then, you need to enable the script
+```
+sudo systemctl enable CarPC.service
+```
+Now, in order for your changed to take effect, two more commands need to be run
+```
+systemctl daemon-reload
+systemctl start CarPC.service
+```
+The CarPC should now run on start up!
