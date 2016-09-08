@@ -37,7 +37,7 @@ sudo rfcomm bind /dev/rfcomm0 XX:XX:XX:XX:XX:XX
 ```
 
 ### Copying service file to allow auto start up
-In order for this script to be run as a service, you need to move the .service file to the system
+In order for this script to be run as a service, you need to move the .service file to the system.
 In order to do that, you need to copy the provided .service file to /etc/systemd/system
 ```
 sudo cp ./CarPC.service /etc/systemd/system/
@@ -48,7 +48,7 @@ sudo systemctl enable CarPC.service
 ```
 Now, in order for your changed to take effect, two more commands need to be run
 ```
-systemctl daemon-reload
-systemctl start CarPC.service
+sudo systemctl daemon-reload
+sudo systemctl start CarPC.service
 ```
 The CarPC should now run on start up!

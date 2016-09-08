@@ -1,5 +1,6 @@
 
 import obd
+import os
 
 
 class OBDManager():
@@ -59,7 +60,7 @@ class OBDManager():
                     resp.value = resp.value.to('degF')
                 elif resp.value.units == 'kph':
                     resp.value = resp.value.to('mph')
-                    
+
                 responses[key] = ("%.2f " + str(resp.value.units)) % resp.value.magnitude
 
         return responses
@@ -68,4 +69,4 @@ class OBDManager():
         return int((value * 9.0 / 5.0) + 32)
 
     def connectToAdapter(self):
-        pass
+        return os.system("sudo rfcomm bind 00:1D:A5:00:04:A9")

@@ -36,6 +36,7 @@ class LEDScreen(Screen):
 
         self.main.bind(on_release=self.go_to_main)
         self.sliders.bind(on_release=self.go_to_sliders)
+        self.animations.bind(on_release=self.go_to_anims)
 
         self.layout.add_widget(self.color)
         self.layout.add_widget(self.animations)

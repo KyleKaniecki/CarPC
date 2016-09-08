@@ -19,8 +19,6 @@ class TestApp(App):
 
     def build(self):
 
-        # os.system("sudo rfcomm bind 00:1D:A5:00:04:A9")
-
         # Build and initialize managers that handle logic
         sm = ScreenManager()
         obdmanager = OBDManager()
