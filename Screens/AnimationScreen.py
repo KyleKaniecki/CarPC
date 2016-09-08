@@ -57,7 +57,7 @@ class AnimationScreen(Screen):
 
     def animation_callback(self, value):
 
-        self.led_manager.setAnimation(self.value.text)
+        self.led_manager.setAnimation(value.text)
 
     def go_back(self, value):
         self.parent.current = "LEDs"
