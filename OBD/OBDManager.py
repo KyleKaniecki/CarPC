@@ -32,26 +32,35 @@ class OBDManager():
         if(table == 1):
             for key in self.first_commands.keys():
                 resp = self.obd_controller.query(self.first_commands[key])
-                if resp.units == "C":
-                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
-                    resp.units = "F"
-                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
+
+                if resp.value.units == "C":
+                    resp.value = resp.value.to('degF')
+                elif resp.value.units == 'kph':
+                    resp.value = resp.value.to('mph')
+
+                responses[key] = ("%.2f " + str(resp.value.units)) % resp.value.magnitude
 
         elif(table == 2):
             for key in self.second_commands.keys():
                 resp = self.obd_controller.query(self.second_commands[key])
-                if resp.units == "C":
-                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
-                    resp.units = "F"
-                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
+
+                if resp.value.units == "C":
+                    resp.value = resp.value.to('degF')
+                elif resp.value.units == 'kph':
+                    resp.value = resp.value.to('mph')
+
+                responses[key] = ("%.2f " + str(resp.value.units)) % resp.value.magnitude
 
         else:
             for key in self.third_commands.keys():
                 resp = self.obd_controller.query(self.third_commands[key])
-                if resp.units == "C":
-                    resp.magnitude = self.celsius_to_fahrenheit(resp.magnitude)
-                    resp.units = "F"
-                responses[key] = ("%.2f " + str(resp.units)) % resp.magnitude
+                
+                if resp.value.units == "C":
+                    resp.value = resp.value.to('degF')
+                elif resp.value.units == 'kph':
+                    resp.value = resp.value.to('mph')
+                    
+                responses[key] = ("%.2f " + str(resp.value.units)) % resp.value.magnitude
 
         return responses
 
