@@ -68,7 +68,7 @@ class SliderScreen(Screen):
             (int(self.sliders[0].value), int(self.sliders[1].value), int(self.sliders[2].value)))
 
         for i in range(3):
-            self.labels[i].text = (self.labels[i].text[:len(self.labels[i].text) - 4] + self.sliders[i].value)
+            self.labels[i].text = (self.labels[i].text[:len(self.labels[i].text) - 4] + "%s") % self.sliders[i].value
 
     def save(self, value):
 
