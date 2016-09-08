@@ -40,12 +40,12 @@ class SliderScreen(Screen):
                         Slider(min=0,
                                max=255,
                                value=self.led_manager.current_color[1],
-                               pos_hint={'x': 0, 'y': .75},
+                               pos_hint={'x': 0, 'y': .5},
                                size_hint=(1, .20)),
                         Slider(min=0,
                                max=255,
                                value=self.led_manager.current_color[1],
-                               pos_hint={'x': 0, 'y': .75},
+                               pos_hint={'x': 0, 'y': .25},
                                size_hint=(1, .20))
                         ]
 
@@ -68,7 +68,7 @@ class SliderScreen(Screen):
             (int(self.sliders[0].value), int(self.sliders[1].value), int(self.sliders[2].value)))
 
         for i in range(3):
-            self.labels[i].text = (self.labels[i].text[:len(self.labels[i].text) - 4] + "%s") % self.sliders[i].value
+            self.labels[i].text = (self.labels[i].text[:len(self.labels[i].text) - len(str(int(self.sliders[i].value)))] + "%d") % self.sliders[i].value
 
     def save(self, value):
 
